@@ -1,3 +1,130 @@
+* {
+  box-sizing: border-box;
+}
+header {
+  height: 80px;
+}
 body {
-  background: blue
+  font-family: sans-serif;
+}
+
+.grid {
+  display: flex;
+  margin: 3px;
+  /* border: 1px solid black; */
+  height: 70vh;
+  justify-content: center;
+}
+
+.game-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* border: 1px solid black; */
+  width: 350px;
+  max-height: 70vh;
+}
+
+div.ball-board {
+  display: flex;
+  /* border-top: 1px solid black; */
+  flex: 1;
+}
+.hint-grid {
+  margin: 3px;
+  /* border: 1px solid black; */
+  width: 100px;
+
+}
+.ball-grid, .hint-container{
+  width: 75px;
+  height: calc(70vh / 10);
+  border: 1px dashed black;
+  display: flex;
+  flex-direction: column;
+  display: block;
+}
+.questionmark-grid {
+  width: 200px;
+  height: calc(70vh / 10);
+  border: 1px dashed black;
+  display: flex;
+}
+.headGrid {
+  width: 1000;
+  height: calc(70vh / 10);
+  /* border: 1px dashed black; */
+  display: flex;
+  flex-direction: column;
+  display: block;
+margin-left: 250px;
+}
+.pegs-grid {
+  height: 50px;
+  width: 50px;
+  border: 1px dashed black;
+  /* flex-direction: column;
+  display: block; */
+  display: inline-block;
+}
+.hint-container {
+  display: flex;
+  flex-direction: column;
+  display: block;
+}
+.inner-hint {
+  width: 50%;
+  height: calc(70vh / 20);
+  border: 1px dashed black;
+  display: flex;
+  flex-direction: column;
+  display: block;
+  display: inline-block;
+}
+
+.cointainer div{
+    display: inline-block;
+    text-align: center;
+}
+button {
+  margin-top: 20px;
+  line-height: 60px;
+  font-weight: bold;
+  padding: 0 40px;
+  background: rgb(39, 149, 246);
+  border: none;
+}
+button:hover {
+  background:
+}
+.ball-grid {
+  background-color: rgb(240, 240, 245);
+}
+.pegsBlue, .pegsPink, .pegsGreen, .pegsYellow, .pegsViolet, .pegsGrey {
+  height: 50px;
+  width: 50px;
+  border: 1px dashed black;
+  display: inline-block;
+
+}
+.pegsBlue {
+  background-color:rgb(39, 149, 246)
+}
+
+.pegsPink {
+  background-color: rgb(232, 39, 246)
+}
+
+.pegsGreen {
+  background-color:rgb(39, 246, 177)
+}
+.pegsYellow {
+  background-color:rgb(246, 191, 39)
+}
+.pegsViolet {
+  background-color:rgb(149, 39, 246)
+}
+.pegsGrey {
+  background-color:rgb(173, 194, 195)
 }
