@@ -1,17 +1,16 @@
 const width = 4
 const squares = []
 
-// ALL ABOUT GRID
 function init() {
+  // ALL ABOUT GRID
 
   const gameGrid = document.querySelector('.game-grid')
   const hintGrid = document.querySelector('.hint-grid')
   const questionmarkGrid = document.querySelector('.questionmark-grid')
   const button = document.querySelector('.button')
   const peg = document.querySelector('.pegs-grid')
-  const colorsBtn = document.querySelector('#colors')
-  // const pegsBlue = document.querySelector('.pegs-grid pegsBlue')
-  // const pegsPink = document.querySelector('.pegs-grid pegsPink')
+
+
 
   for (let i = 0; i < 10; i++) {
     const square = document.createElement('div')
@@ -30,6 +29,7 @@ function init() {
     square.classList.add('ball-grid')
     square.innerHTML = i
     square.classList.add(i)
+    square.id = 'div' + i
     squares.push(square)
     gameGrid.append(square)
 
@@ -38,6 +38,7 @@ function init() {
   for (let i = 0; i < 4; i++) {
     const square = document.createElement('div')
     square.classList.add('questionmark-grid')
+    square.id = i
     squares.push(square)
     questionmarkGrid.append(square)
 
@@ -51,44 +52,93 @@ function init() {
 
     })
   }
-  // get the pegs
-
-
   for (let i = 0; i < 6; i++) {
     const square = document.createElement('div')
-    square.classList.add('pegs-grid')
-    square.innerHTML = i
+    square.classList.add('pegs')
+    // square.innerHTML = i
     squares.push(square)
     peg.append(square)
     peg.appendChild(square)
-    if (i === 0)square.classList.add('pegsBlue')
-    if (i === 1)square.classList.add('pegsPink')
-    if (i === 2)square.classList.add('pegsGreen')
-    if (i === 3)square.classList.add('pegsYellow')
-    if (i === 4)square.classList.add('pegsViolet')
-    if (i === 5)square.classList.add('pegsGrey')
+    if (i === 0) {
+      square.classList.add('pegsBlue')
+      square.id = 'blue'
+    }
+    if (i === 1){
+      square.classList.add('pegsPink')
+      square.id = 'pink'
+    }
+    if (i === 2) {
+      square.classList.add('pegsGreen')
+      square.id = 'green'
+    }
+    if (i === 3) {
+      square.classList.add('pegsYellow')
+      square.id = 'yellow'
+    }
+    if (i === 4) {
+      square.classList.add('pegsViolet')
+      square.id = 'violet'
+    }
+    if (i === 5) {
+      square.classList.add('pegsGrey')
+      square.id = 'grey'
+    }
   }
+  const pegBlue = document.querySelector('#blue')
+  // const pegPink = document.querySelector('#pink')
+  // const pegGreen = document.querySelector('#pink')
+  // const pegYellow = document.querySelector('#pink')
+  // const pegViolet = document.querySelector('#pink')
+  // const pegGrey = document.querySelector('#pink')
+  // const pegPink = document.querySelector('#pink')
+  const divs = document.querySelector('#div36')
 
-  // colorsBtn.addEventListener('click', colors)
-  // function colors (pegTest) {
-  //   console.log('colors button')
-  //
-  // }
+  pegBlue.addEventListener('click', () => {
+    divs.classList.add('pegsBlue')//name of the class from css
+  })
 
-  // startBtn
-  // addEventListener on startBtn calling 'colors'
-  // function colors() { adds classList pegsxxxx}
 
+
+
+
+
+  const switchGrid = document.querySelector('#switch-grid')
+  const pegPink = document.querySelector('#pink')
+  console.log(switchGrid)
+  switchGrid.addEventListener('click',(e) => {
+    switch(e.target.id) {
+      case pink:
+      pegBlue.addEventListener('click', () => {
+        divs.classList.add('pegsBlue')//name of the class from css
+      })
+      break
+      default:
+      console.log(e.target)
+    }
+  })
 
 }
+
 
 window.addEventListener('DOMContentLoaded', init)
 
 //
-// if (i === 0)square.classList.add('pegsBlue')
-// if (i === 1)square.classList.add('pegsPink')
-// if (i === 2)square.classList.add('pegsGreen')
-// if (i === 3)square.classList.add('pegsYellow')
-// if (i === 4)square.classList.add('pegsViolet')
-// if (i === 5)square.classList.add('pegsGrey')
-// console.log(peg)
+// console.log('Im blue')
+// break
+// case pink:
+// console.log('Im pink')
+// break
+// case green:
+// console.log('Im green')
+// break
+// case yellow:
+// console.log('Im yellow')
+// break
+// case violet:
+// console.log('Im violet')
+// break
+// case grey:
+// console.log('Im grey')
+// break
+// default:
+// console.log(e.target)

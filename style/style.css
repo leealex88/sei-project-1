@@ -6,6 +6,7 @@ header {
 }
 body {
   font-family: sans-serif;
+  background-image: url("dots.jpg");
 }
 
 .grid {
@@ -58,15 +59,17 @@ div.ball-board {
   display: flex;
   flex-direction: column;
   display: block;
-margin-left: 250px;
+  margin-left: 350px;
+  margin-top: 50px;
 }
 .pegs-grid {
   height: 50px;
-  width: 50px;
-  border: 1px dashed black;
-  /* flex-direction: column;
-  display: block; */
-  display: inline-block;
+  width: 700px;
+  /* border: 1px dashed black; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 5px;
 }
 .hint-container {
   display: flex;
@@ -88,7 +91,7 @@ margin-left: 250px;
     text-align: center;
 }
 button {
-  margin-top: 20px;
+  margin-top: 0px;
   line-height: 60px;
   font-weight: bold;
   padding: 0 40px;
@@ -101,10 +104,10 @@ button:hover {
 .ball-grid {
   background-color: rgb(240, 240, 245);
 }
-.pegsBlue, .pegsPink, .pegsGreen, .pegsYellow, .pegsViolet, .pegsGrey {
+.pegs {
   height: 50px;
   width: 50px;
-  border: 1px dashed black;
+  /* border: 1px dashed black; */
   display: inline-block;
 
 }
