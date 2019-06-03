@@ -1,5 +1,6 @@
 const width = 4
 const squares = []
+let divIndex = 36
 
 function init() {
   // ALL ABOUT GRID
@@ -84,38 +85,64 @@ function init() {
       square.id = 'grey'
     }
   }
-  const pegBlue = document.querySelector('#blue')
+  // const pegBlue = document.querySelector('#blue')
   // const pegPink = document.querySelector('#pink')
   // const pegGreen = document.querySelector('#pink')
   // const pegYellow = document.querySelector('#pink')
   // const pegViolet = document.querySelector('#pink')
   // const pegGrey = document.querySelector('#pink')
-  // const pegPink = document.querySelector('#pink')
-  const divs = document.querySelector('#div36')
 
-  pegBlue.addEventListener('click', () => {
-    divs.classList.add('pegsBlue')//name of the class from css
-  })
-
-
-
-
-
+  // const divs = document.querySelector('#div36')
+  // pegBlue.addEventListener('click', () => {
+  //   divs.classList.add('pegsBlue')//name of the class from css
+  // })
 
   const switchGrid = document.querySelector('#switch-grid')
-  const pegPink = document.querySelector('#pink')
+
   console.log(switchGrid)
   switchGrid.addEventListener('click',(e) => {
     switch(e.target.id) {
-      case pink:
-      pegBlue.addEventListener('click', () => {
-        divs.classList.add('pegsBlue')//name of the class from css
-      })
-      break
+      case 'blue':
+        squares[divIndex].classList.add('pegsBlue')
+        checkIndex()
+        break
+      case 'pink':
+        squares[divIndex].classList.add('pegsPink')
+        checkIndex()
+        break
+      case 'green':
+        console.log('clicked green')
+        break
+      case 'yellow':
+        console.log('clicked yellow')
+        break
+      case 'violet':
+        console.log('clicked violet')
+        break
+      case 'grey':
+        console.log('clicked grey')
+        break
       default:
-      console.log(e.target)
+        console.log('default', e.target)
     }
   })
+
+  function checkIndex() {
+    // if (divIndex === 3 || divIndex == 7 || ... )
+    if (divIndex % 4 === 3) {
+      // check for win
+        // if win, add pink peg
+        // else, give hints and minus 7 from index to move up
+      divIndex -= 7
+    } else {
+      divIndex ++
+    }
+  }
+
+
+
+
+
 
 }
 

@@ -104,12 +104,16 @@ button:hover {
 .ball-grid {
   background-color: rgb(240, 240, 245);
 }
+
+#switch-grid {
+  display: flex;
+  justify-content: center;
+}
 .pegs {
   height: 50px;
   width: 50px;
   /* border: 1px dashed black; */
   display: inline-block;
-
 }
 .pegsBlue {
   background-color:rgb(39, 149, 246)
