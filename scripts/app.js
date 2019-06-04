@@ -2,6 +2,7 @@ const width = 4
 const squares = []
 const answerSquares = []
 let divIndex = 36
+let playerChoice = []
 
 function init() {
   // ALL ABOUT GRID
@@ -44,7 +45,9 @@ function init() {
     codeMaker[Math.floor(Math.random() * codeMaker.length)]
   ]
 
-  console.log(computerChoice)
+
+
+  // console.log(computerChoice)
   // computer is getting random code
 
   for (let i = 0; i < 4; i++) {
@@ -95,6 +98,9 @@ function init() {
     }
   }
 
+
+  console.log(playerChoice)
+
   const switchGrid = document.querySelector('#switch-grid')
   console.log(switchGrid)
   switchGrid.addEventListener('click',(e) => {
@@ -102,21 +108,28 @@ function init() {
     switch(e.target.id) {
       case 'blue':
         squares[divIndex].classList.add('pegsBlue')
+        playerChoice.push('pegsBlue')
+
         break
       case 'pink':
         squares[divIndex].classList.add('pegsPink')
+        playerChoice.push('pegsPink')
         break
       case 'green':
         squares[divIndex].classList.add('pegsGreen')
+        playerChoice.push('pegsGreen')
         break
       case 'yellow':
         squares[divIndex].classList.add('pegsYellow')
+        playerChoice.push('pegsYellow')
         break
       case 'violet':
         squares[divIndex].classList.add('pegsViolet')
+        playerChoice.push('pegsViolet')
         break
       case 'grey':
         squares[divIndex].classList.add('pegsGrey')
+        playerChoice.push('pegsGrey')
         break
       default:
         console.log('default', e.target)
@@ -124,33 +137,26 @@ function init() {
     checkIndex()
   })
 
-  function checkline() {
-    console.log(computerChoice)
-    console.log('a line has finished, so check it it matches')
-  }
-
-  function checkIndex() {
-    // const computerChoice = getComputerChoice()
-    // if (divIndex === 3 || divIndex == 7 || ... )
-    // if (divIndex % 4 === 3) {
-    //   // check for win
-    //     // if win, add red peg
-    //     // else, give hints and minus 7 from index to move up
-    //   divIndex -= 7
-    // } else {
-    //   divIndex ++
-    //
-    if (divIndex % 4 === 3) {
-      checkline()
-      divIndex -= 7
-    } else {
-      divIndex++
+  function checkline () {
+    if (computerChoice === playerChoice){
+      console.log('Good job')
     }
-  }
-
-  // const checkForMatch = (checkIndex) => {
-  //   if
+  //
   // }
+  // function checkline() {
+  //   if (computerChoice)
+  //   console.log('Find the match')
+  //   // console.log(computerChoice)
+  //   // console.log('a line has finished, so check it it matches')
+  // }
+}
+function checkIndex() {
+  if (divIndex % 4 === 3) {
+    // playerChoice === computerChoice)
+    divIndex -= 7
+  } else {
+    divIndex++
+  }
 }
 
 
