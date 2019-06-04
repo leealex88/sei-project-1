@@ -1,5 +1,6 @@
 const width = 4
 const squares = []
+const answerSquares = []
 let divIndex = 36
 
 function init() {
@@ -10,7 +11,6 @@ function init() {
   const questionmarkGrid = document.querySelector('.questionmark-grid')
   const button = document.querySelector('.button')
   const peg = document.querySelector('.pegs-grid')
-
 
 
   for (let i = 0; i < 10; i++) {
@@ -35,24 +35,33 @@ function init() {
     gameGrid.append(square)
 
   }
+  const codeMaker = ['pegsBlue', 'pegsPink', 'pegsGreen', 'pegsYellow', 'pegsViolet', 'pegsGrey']
+
+  const computerChoice = [
+    codeMaker[Math.floor(Math.random() * codeMaker.length)],
+    codeMaker[Math.floor(Math.random() * codeMaker.length)],
+    codeMaker[Math.floor(Math.random() * codeMaker.length)],
+    codeMaker[Math.floor(Math.random() * codeMaker.length)]
+  ]
+
+  console.log(computerChoice)
   // computer is getting random code
+
   for (let i = 0; i < 4; i++) {
     const square = document.createElement('div')
     square.classList.add('questionmark-grid')
     square.id = i
-    squares.push(square)
+    answerSquares.push(square)
     questionmarkGrid.append(square)
-
-    const codeMaker = ['rgb(39, 149, 246)', 'rgb(232, 39, 246)', 'rgb(39, 246, 177)', 'rgb(246, 191, 39)', 'rgb(149, 39, 246)', 'rgb(173, 194, 195)']
-
-    const computerChoice = codeMaker[Math.floor(Math.random() * codeMaker.length)]
-    console.log(computerChoice)
-
-    button.addEventListener('click', () => {
-      square.style.backgroundColor = computerChoice
-
-    })
   }
+
+  button.addEventListener('click', () => {
+    for (let i = 0; i < computerChoice.length; i++) {
+      answerSquares[i].classList.add(computerChoice[i])
+    }
+  })
+
+
   for (let i = 0; i < 6; i++) {
     const square = document.createElement('div')
     square.classList.add('pegs')
@@ -85,65 +94,63 @@ function init() {
       square.id = 'grey'
     }
   }
-  // const pegBlue = document.querySelector('#blue')
-  // const pegPink = document.querySelector('#pink')
-  // const pegGreen = document.querySelector('#pink')
-  // const pegYellow = document.querySelector('#pink')
-  // const pegViolet = document.querySelector('#pink')
-  // const pegGrey = document.querySelector('#pink')
-
-  // const divs = document.querySelector('#div36')
-  // pegBlue.addEventListener('click', () => {
-  //   divs.classList.add('pegsBlue')//name of the class from css
-  // })
 
   const switchGrid = document.querySelector('#switch-grid')
-
   console.log(switchGrid)
   switchGrid.addEventListener('click',(e) => {
+    console.log(divIndex)
     switch(e.target.id) {
       case 'blue':
         squares[divIndex].classList.add('pegsBlue')
-        checkIndex()
         break
       case 'pink':
         squares[divIndex].classList.add('pegsPink')
-        checkIndex()
         break
       case 'green':
-        console.log('clicked green')
+        squares[divIndex].classList.add('pegsGreen')
         break
       case 'yellow':
-        console.log('clicked yellow')
+        squares[divIndex].classList.add('pegsYellow')
         break
       case 'violet':
-        console.log('clicked violet')
+        squares[divIndex].classList.add('pegsViolet')
         break
       case 'grey':
-        console.log('clicked grey')
+        squares[divIndex].classList.add('pegsGrey')
         break
       default:
         console.log('default', e.target)
     }
+    checkIndex()
   })
 
+  function checkline() {
+    console.log(computerChoice)
+    console.log('a line has finished, so check it it matches')
+  }
+
   function checkIndex() {
+    // const computerChoice = getComputerChoice()
     // if (divIndex === 3 || divIndex == 7 || ... )
+    // if (divIndex % 4 === 3) {
+    //   // check for win
+    //     // if win, add red peg
+    //     // else, give hints and minus 7 from index to move up
+    //   divIndex -= 7
+    // } else {
+    //   divIndex ++
+    //
     if (divIndex % 4 === 3) {
-      // check for win
-        // if win, add pink peg
-        // else, give hints and minus 7 from index to move up
+      checkline()
       divIndex -= 7
     } else {
-      divIndex ++
+      divIndex++
     }
   }
 
-
-
-
-
-
+  // const checkForMatch = (checkIndex) => {
+  //   if
+  // }
 }
 
 
