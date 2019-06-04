@@ -137,10 +137,10 @@ function init() {
     checkIndex()
   })
 
-  function checkline () {
-    if (computerChoice === playerChoice){
-      console.log('Good job')
-    }
+  // function checkline () {
+  //   if (computerChoice === playerChoice){
+  //     console.log('Good job')
+  //   }
   //
   // }
   // function checkline() {
