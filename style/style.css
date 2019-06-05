@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 header {
-  height: 80px;
+  height: 60px;
 }
 body {
   font-family: sans-serif;
@@ -13,7 +13,7 @@ body {
   display: flex;
   margin: 3px;
   /* border: 1px solid black; */
-  height: 70vh;
+  height: 75vh;
   justify-content: center;
 }
 
@@ -32,16 +32,19 @@ div.ball-board {
   /* border-top: 1px solid black; */
   flex: 1;
 }
-.hint-grid {
+
+.instraction-grid {
   margin: 3px;
   /* border: 1px solid black; */
-  width: 100px;
-
+  width: 300px;
+  text-align: justify;
+  color: rgb(120, 120, 120);
 }
+
 .ball-grid, .hint-container{
   width: 75px;
   height: calc(70vh / 10);
-  border: 1px dashed black;
+  /* border: 1px dashed black; */
   display: flex;
   flex-direction: column;
   display: block;
@@ -49,18 +52,24 @@ div.ball-board {
 .questionmark-grid {
   width: 200px;
   height: calc(70vh / 10);
-  border: 1px dashed black;
+  /* border: 1px dashed black; */
   display: flex;
+  margin: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .headGrid {
   width: 1000;
   height: calc(70vh / 10);
   /* border: 1px dashed black; */
-  display: flex;
-  flex-direction: column;
+
   display: block;
   margin-left: 350px;
-  margin-top: 50px;
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .pegs-grid {
   height: 50px;
@@ -69,22 +78,24 @@ div.ball-board {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 5px;
+  margin: 5px;
 }
-.hint-container {
+
+.hint-grid {
+  margin: 3px;
+  /* border: 1px solid black; */
+  width: 100px;
+  height: 75vh;
   display: flex;
-  flex-direction: column;
-  display: block;
+  flex-wrap: wrap;
 }
-.inner-hint {
+
+.hint-grid > .hint {
   width: 50%;
   height: calc(70vh / 20);
-  border: 1px dashed black;
-  display: flex;
-  flex-direction: column;
-  display: block;
-  display: inline-block;
+  background-color: rgb(240, 240, 245);
 }
+
 
 .cointainer div{
     display: inline-block;
@@ -98,11 +109,10 @@ button {
   background: rgb(39, 149, 246);
   border: none;
 }
-button:hover {
-  background:
-}
+
 .ball-grid {
   background-color: rgb(240, 240, 245);
+  margin: 2px;
 }
 
 #switch-grid {
@@ -114,11 +124,11 @@ button:hover {
   width: 50px;
   /* border: 1px dashed black; */
   display: inline-block;
+  margin: 2px;
 }
 .pegsBlue {
   background-color:rgb(39, 149, 246)
 }
-
 .pegsPink {
   background-color: rgb(232, 39, 246)
 }
@@ -134,4 +144,11 @@ button:hover {
 }
 .pegsGrey {
   background-color:rgb(173, 194, 195)
+}
+
+.hint-grid > .hint.blackHint {
+  background-color: black;
+}
+.hint-grid > .hint.redHint {
+  background-color: red;
 }

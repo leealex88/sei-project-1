@@ -1,8 +1,13 @@
 const width = 4
 const squares = []
 const answerSquares = []
+const hintSquares = []
 let divIndex = 36
+let hintIndex = 36
 let playerChoice = []
+let computerChoice = []
+const blackHint = 'black'
+const redHint = 'red'
 
 function init() {
   // ALL ABOUT GRID
@@ -14,17 +19,14 @@ function init() {
   const peg = document.querySelector('.pegs-grid')
 
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < width * 10; i++) {
     const square = document.createElement('div')
-    square.classList.add('hint-container')
+    square.classList.add('hint')
+    square.textContent = i
+    hintSquares.push(square)
     hintGrid.append(square)
-    for (let j = 0; j < 4; j++) {
-      const innerSquare = document.createElement('div')
-      innerSquare.classList.add('inner-hint')
-      innerSquare.textContent = j
-      square.append(innerSquare)
-    }
   }
+
 
   for (let i = 0; i < width * 10; i++) {
     const square = document.createElement('div')
@@ -38,16 +40,25 @@ function init() {
   }
   const codeMaker = ['pegsBlue', 'pegsPink', 'pegsGreen', 'pegsYellow', 'pegsViolet', 'pegsGrey']
 
-  const computerChoice = [
-    codeMaker[Math.floor(Math.random() * codeMaker.length)],
-    codeMaker[Math.floor(Math.random() * codeMaker.length)],
-    codeMaker[Math.floor(Math.random() * codeMaker.length)],
-    codeMaker[Math.floor(Math.random() * codeMaker.length)]
-  ]
+  computerChoice = []
+
+  function generateComputerChoice() {
+    for (let i = 0; i < 4; i++) {
+      let color = codeMaker[Math.floor(Math.random() * codeMaker.length)]
+      while (computerChoice.includes(color)) {
+        color = codeMaker[Math.floor(Math.random() * codeMaker.length)]
+      }
+      computerChoice.push(color)
+    }
+  }
+
+  generateComputerChoice()
 
 
 
-  // console.log(computerChoice)
+
+
+  console.log('computerChoice is', computerChoice)
   // computer is getting random code
 
   for (let i = 0; i < 4; i++) {
@@ -56,6 +67,7 @@ function init() {
     square.id = i
     answerSquares.push(square)
     questionmarkGrid.append(square)
+
   }
 
   button.addEventListener('click', () => {
@@ -99,17 +111,15 @@ function init() {
   }
 
 
-  console.log(playerChoice)
+
 
   const switchGrid = document.querySelector('#switch-grid')
-  console.log(switchGrid)
   switchGrid.addEventListener('click',(e) => {
     console.log(divIndex)
     switch(e.target.id) {
       case 'blue':
         squares[divIndex].classList.add('pegsBlue')
         playerChoice.push('pegsBlue')
-
         break
       case 'pink':
         squares[divIndex].classList.add('pegsPink')
@@ -134,51 +144,68 @@ function init() {
       default:
         console.log('default', e.target)
     }
+    console.log(computerChoice)
+    console.log(playerChoice)
     checkIndex()
   })
 
-  // function checkline () {
-  //   if (computerChoice === playerChoice){
-  //     console.log('Good job')
-  //   }
-  //
-  // }
-  // function checkline() {
-  //   if (computerChoice)
-  //   console.log('Find the match')
-  //   // console.log(computerChoice)
-  //   // console.log('a line has finished, so check it it matches')
-  // }
-}
-function checkIndex() {
-  if (divIndex % 4 === 3) {
-    // playerChoice === computerChoice)
-    divIndex -= 7
-  } else {
-    divIndex++
+  function checkLine() {
+    for (let i = 0; i < 4; i++) {
+      // Correct colour, correct position
+      if (playerChoice[i] === computerChoice[i]) {
+        hintSquares[hintIndex].classList.add('blackHint')
+        changeHintIndex()
+      }
+      // else if Colour exists in computerChoice array
+    }
+  }
+  function checkIndex() {
+    if (divIndex % 4 === 3) {
+      divIndex -= 7
+      checkLine()
+    } else {
+      divIndex++
+    }
+  }
+
+  function changeHintIndex() {
+    if (hintIndex % 4 === 3) {
+      hintIndex -= 7
+    } else {
+      hintIndex++
+    }
   }
 }
 
 
 window.addEventListener('DOMContentLoaded', init)
 
+
+// function checkLine() {
+//   if (computerChoice[0] === playerChoice[0] && computerChoice[1] === playerChoice[1] && computerChoice[2] === playerChoice[2] && computerChoice[3] === playerChoice[3]) {
+//     console.log('Find the match')
+//   } else if (computerChoice[0] !== playerChoice[0] && computerChoice[1] !== playerChoice[1] && computerChoice[2] !== playerChoice[2] && computerChoice[3] !== playerChoice[3]){
+//     console.log('no matches found')
+//   }
+//   playerChoice = []
+// }
+
+
+
+// const getAhint = document.querySelector('.hint-cointainer')
 //
-// console.log('Im blue')
-// break
-// case pink:
-// console.log('Im pink')
-// break
-// case green:
-// console.log('Im green')
-// break
-// case yellow:
-// console.log('Im yellow')
-// break
-// case violet:
-// console.log('Im violet')
-// break
-// case grey:
-// console.log('Im grey')
-// break
-// default:
-// console.log(e.target)
+//   switch() {
+//     case 'black':
+//       innerSquare[hintIndex].classList.add('blackHint')
+//         // playerChoice.push('pegsBlue')
+//       break
+//     case 'red':
+//       innerSquare[hintIndex].classList.add('redHint')
+//       // playerChoice.push('pegsPink')
+//       break
+//     default:
+//       console.log('default', e.target)
+//   }
+//   checkIndex()
+// })
+// }
