@@ -8,12 +8,27 @@
   <title></title>
 </head>
 <body>
-<div class="headGrid">
-  <!-- <h1 class="timer">Time: 0</h1> -->
+  <div class="headGrid">
+    <!-- <h1 class="timer">Time: 0</h1> -->
     <div class="questionmark-grid"></div>
-</div>
+    <div class="questionmark-empty"></div>
+  </div>
 
   <div class="grid">
+    <div class= "two-buttons">
+      <div class="button">
+      <button type="button" name="button">Check it!</button>
+      </div>
+      <div class="check-it">
+      <button type="button" name="button">Start</button>
+      </div>
+
+      <div class="reset">
+      <button type="button" name="button">Reset</button>
+    </div>
+
+
+   </div>
     <div class="game-grid" id="play"></div>
     <div class="hint-grid"></div>
     <div class="instraction-grid">
@@ -21,23 +36,20 @@
 
 <p>Your objective is to guess the secret code. You will have to guess the colors and put them in the same order as they are in the secret code.</p>
 
-<p>Choose four colors in the next available row and then click on the Check button. The computer will score your guess in the following way:</p>
+<p>Choose four colors in the next available row. The computer will score your guess in the following way:</p>
 
-<p>For each guess that is right in both color and position you get a black point
-For each guess that is right in color but not in position you get a red point<p>
+<p>For each guess that is right in both color and position you get a <span class="black">black</span> point</p>
+<p>For each guess that is right in color but not in position you get a <span class="red">red</span> point<p>
 
-<p>Good Luck!</p>
+<p><span>Good Luck!</span></p>
     </div>
   </div>
 
   <div id="switch-grid">
-    <div class="button">
-      <button type="button" name="button">Start</button>
-    </div>
+
 <div class="pegs-grid" id="all-colors">
 </div>
 </div>
-<!-- <button type="submit-button" id="colors">Submit</button> -->
 
 </body>
 </html>

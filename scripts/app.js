@@ -1,7 +1,9 @@
 const width = 4
 const squares = []
 const answerSquares = []
+const noColorsSquares = []
 const hintSquares = []
+const answerSquares2 =[]
 let divIndex = 36
 let hintIndex = 36
 let playerChoice = []
@@ -14,15 +16,17 @@ function init() {
 
   const gameGrid = document.querySelector('.game-grid')
   const hintGrid = document.querySelector('.hint-grid')
-  const questionmarkGrid = document.querySelector('.questionmark-grid')
   const button = document.querySelector('.button')
   const peg = document.querySelector('.pegs-grid')
+  const resetButton = document.querySelector('.reset')
+  const startButton = document.querySelector('.start-button')
+
 
 
   for (let i = 0; i < width * 10; i++) {
     const square = document.createElement('div')
     square.classList.add('hint')
-    square.textContent = i
+    // square.textContent = i
     hintSquares.push(square)
     hintGrid.append(square)
   }
@@ -31,7 +35,7 @@ function init() {
   for (let i = 0; i < width * 10; i++) {
     const square = document.createElement('div')
     square.classList.add('ball-grid')
-    square.innerHTML = i
+    // square.innerHTML = i
     square.classList.add(i)
     square.id = 'div' + i
     squares.push(square)
@@ -53,11 +57,9 @@ function init() {
   }
 
   generateComputerChoice()
-
-
   console.log('computerChoice is', computerChoice)
   // computer is getting random code
-
+  const questionmarkGrid = document.querySelector('.questionmark-grid')
   for (let i = 0; i < 4; i++) {
     const square = document.createElement('div')
     square.classList.add('questionmark-grid')
@@ -65,6 +67,20 @@ function init() {
     answerSquares.push(square)
     questionmarkGrid.append(square)
   }
+  // questionmark no Colors
+
+  const questionmarkEmpty = document.querySelector('.questionmark-empty')
+  for (let i = 0; i < 4; i++) {
+    const square = document.createElement('div')
+    square.classList.add('questionmark-nocolors')
+    // square.innerHTML = i
+    square.id = i
+    answerSquares2.push(square)
+    questionmarkEmpty.append(square)
+
+  }
+
+
 
   button.addEventListener('click', () => {
     for (let i = 0; i < computerChoice.length; i++) {
@@ -141,13 +157,15 @@ function init() {
     checkIndex()
   })
 
+let result = []
   function checkLine() {
     for (let i = 0; i < 4; i++) {
-      console.log('loop start')
+      // console.log('loop start')
       const pChoice = playerChoice[i]
       // Correct colour, correct position
       if (pChoice === computerChoice[i]) {
         hintSquares[hintIndex].classList.add('blackHint')
+        result.push('blackHint')
         changeHintIndex()
       } else {
         for (let j = 0; j < 4; j++){
@@ -157,18 +175,36 @@ function init() {
           console.log({i, j})
           if (pChoice === computerChoice[j]){
             hintSquares[hintIndex].classList.add('redHint')
+            result.push('redHint')
             changeHintIndex()
           }
         }
       }
       // else if Colour exists in computerChoice array
-      console.log('loop end')
+      // console.log('loop end')
     }
+    console.log('result is', result)
+  }
+  function resultMessage() {
+    if (result.length < 4 || result.includes('redHint')) {
+      setTimeout(() => {
+        window.alert('Try again!')
+      }, 500)
+    } else if (result.every(hint => hint === 'blackHint')) {
+      setTimeout(() => {
+        window.alert('You won!')
+      }, 500)
+    }
+
   }
   function checkIndex() {
     if (divIndex % 4 === 3) {
       divIndex -= 7
       checkLine()
+      resultMessage()
+      hintIndex = divIndex
+      playerChoice = []
+      result = []
     } else {
       divIndex++
     }
@@ -181,7 +217,17 @@ function init() {
       hintIndex++
     }
   }
+  // function checkWin() {
+  //   if (hintIndex.every(peg => peg === 'black')) {
+  //     gridItemSolution.forEach(solution => solution.classList.remove('box-blank'))
+  //     console.log('win condition met')
+  //   })
+
+  resetButton.addEventListener('click', () => {
+    location.reload()
+  })
+  console.log('reset')
+
+
 }
-
-
 window.addEventListener('DOMContentLoaded', init)

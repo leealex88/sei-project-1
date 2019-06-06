@@ -28,7 +28,7 @@ margin-right: 450px;
   flex-wrap: wrap;
   /* border: 1px solid black; */
   width: 350px;
-  max-height: 70vh;
+  max-height: 74vh;
 }
 
 div.ball-board {
@@ -54,7 +54,7 @@ div.ball-board {
   display: block;
 }
 .questionmark-grid {
-  width: 200px;
+  width: 220px;
   height: calc(70vh / 10);
   /* border: 1px dashed black; */
   display: flex;
@@ -62,8 +62,38 @@ div.ball-board {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-image: url('questionmark.png')
+  /* background-image: url('questionmark.png'); */
+  background-size: 50px;
+  background-repeat: no-repeat;
 }
+
+.questionmark-nocolors {
+  width: 50px;
+  height: calc(70vh / 10);
+  /* border: 1px dashed black; */
+  display: flex;
+  margin: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url('questionmark.png');
+  background-size: 50px;
+  background-repeat: no-repeat;
+}
+.questionmark-empty {
+  width: 345px;
+  height: calc(70vh / 10);
+  /* border: 1px dashed black; */
+  display: flex;
+  margin: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-image: url('questionmark.png');
+  background-size: 50px;
+  background-repeat: no-repeat;
+}
+
 .headGrid {
   width: 1000;
   height: calc(70vh / 10);
@@ -93,12 +123,14 @@ div.ball-board {
   display: flex;
   flex-wrap: wrap;
   /* border: 1px dashed black; */
+
 }
 
 .hint-grid > .hint {
   width: 50%;
   height: calc(70vh / 20);
   background-color: rgb(240, 240, 245);
+  border-radius: 50%;
 }
 
 .cointainer div{
@@ -106,12 +138,14 @@ div.ball-board {
     text-align: center;
 }
 button {
-  margin-top: 0px;
+  margin: 5px;
   line-height: 60px;
   font-weight: bold;
   padding: 0 40px;
   background: rgb(39, 149, 246);
   border: none;
+  width: 130px;
+
 }
 
 .ball-grid {
@@ -155,4 +189,11 @@ button {
 }
 .hint-grid > .hint.redHint {
   background-color: red;
+}
+span {
+    color: black;
+}
+.two-buttons {
+  align-self: flex-end;
+  text-align: center;
 }
