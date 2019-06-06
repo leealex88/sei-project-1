@@ -8,7 +8,11 @@ body {
   font-family: sans-serif;
   background-image: url("dots.jpg");
 }
-
+/* h1 {
+color: rgb(120, 120, 120);
+font-size: 22px;
+margin-right: 450px;
+} */
 .grid {
   display: flex;
   margin: 3px;
@@ -34,10 +38,10 @@ div.ball-board {
 }
 
 .instraction-grid {
-  margin: 3px;
+  margin: 5px 5px 5px 30px;
   /* border: 1px solid black; */
   width: 300px;
-  text-align: justify;
+  text-align: center;
   color: rgb(120, 120, 120);
 }
 
@@ -58,12 +62,12 @@ div.ball-board {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  background-image: url('questionmark.png')
 }
 .headGrid {
   width: 1000;
   height: calc(70vh / 10);
   /* border: 1px dashed black; */
-
   display: block;
   margin-left: 350px;
   margin: 20px;
@@ -74,11 +78,11 @@ div.ball-board {
 .pegs-grid {
   height: 50px;
   width: 700px;
-  /* border: 1px dashed black; */
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin: 5px;
+  /* border: 1px dashed black; */
 }
 
 .hint-grid {
@@ -88,6 +92,7 @@ div.ball-board {
   height: 75vh;
   display: flex;
   flex-wrap: wrap;
+  /* border: 1px dashed black; */
 }
 
 .hint-grid > .hint {
@@ -95,7 +100,6 @@ div.ball-board {
   height: calc(70vh / 20);
   background-color: rgb(240, 240, 245);
 }
-
 
 .cointainer div{
     display: inline-block;
