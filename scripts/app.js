@@ -16,10 +16,9 @@ function init() {
 
   const gameGrid = document.querySelector('.game-grid')
   const hintGrid = document.querySelector('.hint-grid')
-  const button = document.querySelector('.button')
+  const button = document.querySelector('.start-button')
   const peg = document.querySelector('.pegs-grid')
   const resetButton = document.querySelector('.reset')
-  const startButton = document.querySelector('.start-button')
 
 
 
@@ -67,6 +66,13 @@ function init() {
     answerSquares.push(square)
     questionmarkGrid.append(square)
   }
+
+  // button.addEventListener('click', () => {
+  //   for (let i = 0; i < computerChoice.length; i++) {
+  //     answerSquares[i].classList.add(computerChoice[i])
+  //   }
+  // })
+
   // questionmark no Colors
 
   const questionmarkEmpty = document.querySelector('.questionmark-empty')
@@ -79,8 +85,6 @@ function init() {
     questionmarkEmpty.append(square)
 
   }
-
-
 
   button.addEventListener('click', () => {
     for (let i = 0; i < computerChoice.length; i++) {
@@ -157,7 +161,7 @@ function init() {
     checkIndex()
   })
 
-let result = []
+  let result = []
   function checkLine() {
     for (let i = 0; i < 4; i++) {
       // console.log('loop start')
@@ -217,11 +221,6 @@ let result = []
       hintIndex++
     }
   }
-  // function checkWin() {
-  //   if (hintIndex.every(peg => peg === 'black')) {
-  //     gridItemSolution.forEach(solution => solution.classList.remove('box-blank'))
-  //     console.log('win condition met')
-  //   })
 
   resetButton.addEventListener('click', () => {
     location.reload()
