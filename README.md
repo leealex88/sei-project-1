@@ -6,7 +6,7 @@ See the game online at: https://leealex88.github.io/sei-project-1/
 
 
 ### Timeframe & Team
-> 7 days, solo
+- 7 days, solo
 
 ### Technologies
  - HTML5
@@ -87,3 +87,9 @@ On the left side you can see two buttons: 'Reset' if you want to start the Game 
 ## Challenges and future improvements
 
 I would like to add the function to reset the game after the user guessed the secret colors code.
+
+I would like to add also the different option of the code length to choose, 6 and 8, and let the user to decide or he want to allow duplicates colors or not.
+
+## Author
+
+Ola Skoczylas - First Project Link to portfolio here:
