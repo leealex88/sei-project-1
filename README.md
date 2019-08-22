@@ -39,7 +39,7 @@ Use the clone button to download the game source code. Open the index.html file 
 After completing each row, user guess will be checked by function 'checkLine'
 and will display the result message: 'Try again!', 'You won!'.
 
-```
+```js
 let result = []
 function checkLine() {
   for (let i = 0; i < 4; i++) {
@@ -86,7 +86,36 @@ On the left side you can see two buttons: 'Reset' if you want to start the Game 
 
 ## Challenges and future improvements
 
-I would like to add the function to reset the game after the user guessed the secret colors code.
+The first challenge I encountered was to create the function which is going to check the line with the colors chosen by the user and will add the hint colors in the grit next to it.
+
+Please see below:
+
+```js
+let result = []
+function checkLine() {
+  for (let i = 0; i < 4; i++) {
+    // console.log('loop start')
+    const pChoice = playerChoice[i]
+    // Correct colour, correct position
+    if (pChoice === computerChoice[i]) {
+      hintSquares[hintIndex].classList.add('blackHint')
+      result.push('blackHint')
+      changeHintIndex()
+    } else {
+      for (let j = 0; j < 4; j++){
+        if(j === i){
+          continue
+        }
+        console.log({i, j})
+        if (pChoice === computerChoice[j]){
+          hintSquares[hintIndex].classList.add('redHint')
+          result.push('redHint')
+          changeHintIndex()
+        }
+      }
+    }
+```
+In terms of future improvements, I would like to add the function to reset the game after the user guessed the secret colors code.
 
 I would like to add also the different option of the code length to choose, 6 and 8, and let the user to decide or he want to allow duplicates colors or not.
 
