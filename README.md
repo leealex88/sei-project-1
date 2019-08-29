@@ -115,10 +115,20 @@ function checkLine() {
       }
     }
 ```
-In terms of future improvements, I would like to add the function to reset the game after the user guessed the secret colors code.
+## Wins
 
-I would like to add also the different option of the code length to choose, 6 and 8, and let the user to decide or he want to allow duplicates colors or not.
+My first experience with JavaScript was the morning lecture in GA and then creating this game. I'm very happy with the knowledge I master and this that I was able to create not just the vanilla JavaScript code but also the logic.   
+
+## Future features
+In terms of future improvements, I would like to add the function to reset the game after the user guessed the secret colors code and the different option of the code length to choose, 6 and 8, and let the user to decide or he want to allow duplicates colors or not.
+
+## Key Learnings
+
+- For Loop
+- If else statment
+- adding grid in JS
+- manipulate DOM elements
 
 ## Author
 
-Ola Skoczylas - First Project Link to portfolio here:
+Ola Skoczylas - First Project Link to portfolio here: olaskoczylas.com
