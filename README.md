@@ -124,8 +124,8 @@ In terms of future improvements, I would like to add the function to reset the g
 
 ## Key Learnings
 
-- For Loop
-- If else statment
+- 'For Loop'
+- 'If else statment'
 - adding grid in JS
 - manipulate DOM elements
 
